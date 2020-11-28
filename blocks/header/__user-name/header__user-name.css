@@ -1,0 +1,32 @@
+.header__user-name {
+  max-width: 300px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  color: #ffffff;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 700px) {
+  .header__user-name {
+    margin-bottom: 14px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .header__user-name {
+    font-size: calc(27px + (16 + 16 * 0.7) * ((100vw - 320px) / 1280));
+    line-height: 33px;
+    max-width: 250px;
+  }
+}
+
+@media screen and (max-width: 350px){
+  .header__user-name{
+    max-width: 200px;
+  }
+}

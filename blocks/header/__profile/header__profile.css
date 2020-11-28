@@ -1,0 +1,18 @@
+.header__profile {
+  display: grid;
+  grid-template-columns: repeat(2,min-content)auto;
+  align-items: center;
+  justify-items: flex-start;
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+@media screen and (max-width:700px){
+  .header__profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+  }
+}

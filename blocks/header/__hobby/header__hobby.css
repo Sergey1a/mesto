@@ -1,0 +1,20 @@
+.header__hobby {
+  max-width: 300px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 415px) {
+  .header__hobby {
+    font-size: 14px;
+    line-height: 17px;
+    max-width: 200px;
+  }
+}

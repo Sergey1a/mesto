@@ -1,0 +1,28 @@
+.header__image-edit {
+  background-image: url(../../../image/Vector\(2\).svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-self: end;
+  background-color: black;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 2px;
+  width: 9.37rem;
+  height: 3.1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.header__image-edit:hover {
+  opacity: 0.6;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 700px){
+  .header__image-edit{
+    width: 17.5rem;
+  }
+}

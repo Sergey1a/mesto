@@ -1,0 +1,12 @@
+.header__block-title {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+@media screen and (max-width: 700px) {
+  .header__block-title{
+    align-items: center;
+    margin-bottom: 36px;
+  }
+}
