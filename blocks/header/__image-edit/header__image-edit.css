@@ -21,8 +21,8 @@
   transition: 0.3s;
 }
 
-@media screen and (max-width: 700px){
-  .header__image-edit{
+@media screen and (max-width: 700px) {
+  .header__image-edit {
     width: 17.5rem;
   }
 }

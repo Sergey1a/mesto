@@ -9,8 +9,8 @@
   position: relative;
 }
 
-@media screen and (max-width: 500px){
-  .popup__container{
+@media screen and (max-width: 500px) {
+  .popup__container {
     margin: 0 20px;
   }
 }
