@@ -7,9 +7,11 @@ const headerHobbyNode = document.querySelector('.header__hobby');
 const popupFormNode = document.querySelector('.popup__form')
 const popupInputNameNode = document.querySelector('.popup__input-name');
 const popupInputHobbyNode = document.querySelector('.popup__input-hobby');
+const popupButtonNode = document.querySelector('.popup__button');
 
 headerButtonNode.addEventListener('click',handleHeaderButtonClick);
 popupCloseNode.addEventListener('click',handlePopupCloseClick);
+popupButtonNode.addEventListener('click',handlePopupCloseClick);
 
 function handleHeaderButtonClick() {
     popupNode.classList.add('popup_visible');
@@ -19,6 +21,7 @@ function handleHeaderButtonClick() {
 
 function handlePopupCloseClick() {
     popupNode.classList.remove('popup_visible');
+    popupButtonNode.classList.remove('popup_visible');
 }
 
 popupFormNode.addEventListener('submit',hendleFormSubmit);
