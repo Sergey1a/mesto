@@ -1,4 +1,9 @@
 .popup__input-name {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
   border: none;
   color: black;
   border-bottom: 1px solid #e0e0e0;
