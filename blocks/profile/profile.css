@@ -1,4 +1,6 @@
-.header__profile {
+.profile {
+  max-width: 880px;
+  margin: 0 auto 51px auto;
   display: grid;
   grid-template-columns: repeat(2, min-content) auto;
   align-items: center;
@@ -8,11 +10,12 @@
 }
 
 @media screen and (max-width: 700px) {
-  .header__profile {
+  .profile {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
     position: relative;
+    margin: 0 auto 36px auto;
   }
 }

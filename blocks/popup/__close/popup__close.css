@@ -1,4 +1,8 @@
 .popup__close {
+  background-image: url(../../../image/Vector\(2\).svg);
+  background-position: center center;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
   position: absolute;
   top: -40px;
   right: -40px;
@@ -6,11 +10,19 @@
   height: 40px;
   transform: rotate(-45deg);
   cursor: pointer;
+  transition: 0.3s;
+  outline: none;
 }
 
 .popup__close:hover {
   opacity: 0.6;
-  transition: 0.3s;
+}
+
+@media screen and (max-width: 590px) {
+  .popup__close {
+    right: 0;
+    top: -45px;
+  }
 }
 
 @media screen and (max-width: 500px) {

@@ -1,4 +1,4 @@
-.header__image-edit {
+.profile__image-edit {
   background-image: url(../../../image/Vector\(2\).svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -11,18 +11,16 @@
   height: 3.1rem;
   cursor: pointer;
   outline: none;
-}
-
-.header__image-edit:hover {
-  opacity: 0.6;
-  border: 2px solid #ffffff;
-  box-sizing: border-box;
-  border-radius: 2px;
   transition: 0.3s;
 }
 
+.profile__image-edit:hover {
+  opacity: 0.6;
+  border: 2px solid #ffffff;
+}
+
 @media screen and (max-width: 700px) {
-  .header__image-edit {
+  .profile__image-edit {
     width: 17.5rem;
   }
 }

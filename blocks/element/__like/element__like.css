@@ -1,0 +1,17 @@
+.element__like {
+  background-image: url(/image/Vector\(3\).svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 22px;
+  padding: 10px 0;
+  align-self: center;
+  border: none;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.element__like:hover {
+  opacity: 0.5;
+}

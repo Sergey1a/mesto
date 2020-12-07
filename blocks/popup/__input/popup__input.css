@@ -1,4 +1,4 @@
-.popup__input-hobby {
+.popup__input {
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -10,4 +10,9 @@
   background-color: transparent;
   outline: none;
   margin-bottom: 48px;
+  padding: 10px 0;
+}
+
+.popup__input:focus{
+  box-shadow: 0 0 15px rgb(170, 170, 255);
 }

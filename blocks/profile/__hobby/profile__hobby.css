@@ -1,4 +1,4 @@
-.header__hobby {
+.profile__hobby {
   max-width: 300px;
   font-style: normal;
   font-weight: normal;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 415px) {
-  .header__hobby {
+  .profile__hobby {
     font-size: 14px;
     line-height: 17px;
     max-width: 200px;

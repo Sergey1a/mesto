@@ -7,80 +7,82 @@
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
-    <section class="conteiner">
-      <section class="header">
-        <div class="header__logo-block"><img src="././image/Vector.svg" class="header__logo" alt="лого"></div>
-        <div class="header__profile">
-          <img class="header__avatar" src="././image/image.png" alt="Жак-Ив Кусто">
-          <div class="header__block-title">
-            <div class="header__position">
-              <h1 class="header__user-name">Жак-Ив Кусто</h1>
-              <button class="header__name-edit" type="button"></button>
+   <div class="conteiner">
+      <header class="header">
+        <div class="header__logo-block header__logo-block_full"><img src="././image/Vector.svg" class="header__logo" alt="лого"></div>
+      </header>
+      <main>
+        <section class="profile">
+          <img class="profile__avatar" src="././image/image.png" alt="Жак-Ив Кусто">
+          <div class="profile__block-title">
+            <div class="profile__position">
+              <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+              <button class="profile__name-edit" type="button"></button>
             </div>
-            <p class="header__hobby">Исследователь океана</p>
+            <p class="profile__hobby">Исследователь океана</p>
           </div>
-          <button class="header__image-edit" type="button"></button>
-        </div>
-      </section>
-      <main class="element">
-        <article class="element__card">
-          <img class="element__foto" src="././image/Вакутинкамень.jpg" alt="Вакутин камень">
-          <div class="element__title-wrapper">
-            <h2 class="element__title">Вакутин камень</h2>
-            <img src="././image/Vector(3).svg" alt="лайк">
-          </div>
-        </article>
-        <article class="element__card">
-          <img class="element__foto" src="././image/Колпаки.jpg" alt="Колпаки">
-          <div class="element__title-wrapper">
-            <h2 class="element__title">Колпаки</h2>
-            <img src="././image/Vector(3).svg" alt="лайк">
-          </div>
-        </article>
-        <article class="element__card">
-          <img class="element__foto" src="././image/ПаровозыШумково.jpg" alt="Паровозы Шумково">
-          <div class="element__title-wrapper">
-            <h2 class="element__title">Паровозы Шумково</h2>
-            <img src="././image/Vector(3).svg" alt="лайк">
-          </div>
-        </article>
-        <article class="element__card">
-          <img class="element__foto" src="././image/Река'Вишерка'.jpg" alt="Река Вишерка">
-          <div class="element__title-wrapper">
-            <h2 class="element__title">Река Вишерка</h2>
-            <img src="././image/Vector(3).svg" alt="лайк">
-          </div>
-        </article>
-        <article class="element__card">
-          <img class="element__foto" src="././image/Тулымскоекольцо.jpg" alt="Тулымское кольцо">
-          <div class="element__title-wrapper">
-            <h2 class="element__title">Тулымское кольцо</h2>
-            <img src="././image/Vector(3).svg" alt="лайк">
-          </div>
-        </article>
-        <article class="element__card">
-          <img class="element__foto" src="././image/Усьвинскиестолбы.jpg" alt="Усьвинские столбы">
-          <div class="element__title-wrapper">
-            <h2 class="element__title">Усьвинские столбы</h2>
-            <img src="././image/Vector(3).svg" alt="лайк">
-          </div>
-        </article>
+          <button class="profile__image-edit" type="button"></button>
+        </section>
+        <section class="element">
+          <article class="element__card">
+            <img class="element__foto" src="././image/Вакутинкамень.jpg" alt="Вакутин камень">
+            <div class="element__title-wrapper">
+              <h2 class="element__title">Вакутин камень</h2>
+              <button class="element__like"></button>
+            </div>
+          </article>
+          <article class="element__card">
+            <img class="element__foto" src="././image/Колпаки.jpg" alt="Колпаки">
+            <div class="element__title-wrapper">
+              <h2 class="element__title">Колпаки</h2>
+              <button class="element__like"></button>
+            </div>
+          </article>
+          <article class="element__card">
+            <img class="element__foto" src="././image/ПаровозыШумково.jpg" alt="Паровозы Шумково">
+            <div class="element__title-wrapper">
+              <h2 class="element__title">Паровозы Шумково</h2>
+              <button class="element__like"></button>
+            </div>
+          </article>
+          <article class="element__card">
+            <img class="element__foto" src="././image/Река'Вишерка'.jpg" alt="Река Вишерка">
+            <div class="element__title-wrapper">
+              <h2 class="element__title">Река Вишерка</h2>
+              <button class="element__like"></button>
+            </div>
+          </article>
+          <article class="element__card">
+            <img class="element__foto" src="././image/Тулымскоекольцо.jpg" alt="Тулымское кольцо">
+            <div class="element__title-wrapper">
+              <h2 class="element__title">Тулымское кольцо</h2>
+              <button class="element__like"></button>
+            </div>
+          </article>
+          <article class="element__card">
+            <img class="element__foto" src="././image/Усьвинскиестолбы.jpg" alt="Усьвинские столбы">
+            <div class="element__title-wrapper">
+              <h2 class="element__title">Усьвинские столбы</h2>
+              <button class="element__like"></button>
+            </div>
+          </article>
+        </section>
       </main>
-    </section>
-    <footer>
-      <div class="footer">&copy; 2020 Mesto Russia</div>
-    </footer>
-    <div class="popup">
-      <div class="popup__container">
-        <img src="././image/Vector(2).svg" alt="закрыть" class="popup__close">
-        <form class="popup__form">
+     </div>
+     <footer>
+       <p class="footer">&copy; 2020 Mesto Russia</p>
+     </footer>
+     <div class="popup">
+       <div class="popup__container">
+        <button type="button" class="popup__close"></button>
+        <form name="form" class="popup__form">
           <h2 class="popup__title" >Редактировать профиль</h2>
-          <input type="text" class="popup__input-name" placeholder="Имя">
-          <input type="text" class="popup__input-hobby" placeholder="Хобби">
+          <input type="text" class="popup__input popup__input_type_name" placeholder="Имя" name="name">
+          <input type="text" class="popup__input popup__input_type_hobby" placeholder="Хобби" name="hobby">
           <button type="submit" class="popup__button">Сохранить</button>
         </form>
+       </div>
       </div>
-    </div>
     <script src="././index.js/index.js"></script>
   </body>
 </html>

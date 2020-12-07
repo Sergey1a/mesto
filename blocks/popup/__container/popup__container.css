@@ -2,15 +2,17 @@
   display: flex;
   justify-content: center;
   align-self: center;
-  max-width: 430px;
-  height: 330px;
+  width: 430px;
   background-color: white;
   border-radius: 10px;
   position: relative;
+  padding: 0 30px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 590px) {
   .popup__container {
+    max-width: 430px;
     margin: 0 20px;
+    padding: 0 22px;
   }
 }

@@ -1,11 +1,11 @@
-.header__position-button {
+.profile__position-button {
   display: flex;
   justify-content: flex-end;
   margin-left: auto;
 }
 
 @media screen and (max-width: 700px) {
-  .header__position-button {
+  .profile__position-button {
     margin: 0 auto;
   }
 }
