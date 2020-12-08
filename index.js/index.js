@@ -18,10 +18,9 @@ function handleProfileButtonClick() {
 
 function hendleFormSubmit(event) {
     event.preventDefault();
+    handlePopupCloseClick();          //Надеюсь правильно понял)
     profileHobbyNode.textContent = popupInputHobbyNode.value;
     profileUserNameNode.textContent = popupInputNameNode.value;
-    handlePopupCloseClick().classList.remove('popup_visible');
-
 };
 function handlePopupCloseClick() {
     popupNode.classList.remove('popup_visible');
