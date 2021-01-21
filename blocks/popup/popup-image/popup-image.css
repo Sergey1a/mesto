@@ -1,0 +1,4 @@
+.popup-image {
+  display: flex;
+  transition: opacity 0.5s ease visibility 0.3s ease 0.3s;
+}

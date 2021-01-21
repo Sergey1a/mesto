@@ -1,0 +1,5 @@
+.full-img_type_open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}

@@ -1,0 +1,9 @@
+.element__like_active {
+  background-image: url(/image/Union\ \(1\).svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.element__like_active:hover{
+  opacity: 1;
+}

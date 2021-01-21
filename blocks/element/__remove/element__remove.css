@@ -1,0 +1,14 @@
+.element__remove {
+  background-image: url(/image/Group.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  max-width: 20px;
+  height: 19px;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}

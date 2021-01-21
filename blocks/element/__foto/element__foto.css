@@ -2,7 +2,7 @@
   border-radius: 10px 10px 0 0;
   flex: auto;
   width: 100%;
-  min-height: 282px;
+  height: 282px;
   object-fit: cover;
   object-position: center;
   display: block;

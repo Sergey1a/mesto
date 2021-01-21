@@ -1,0 +1,8 @@
+.full-img__container {
+  position: relative;
+  display: flex;
+  max-width: 75vw;
+  max-height: 75vh;
+  background-color: rgba(255, 255, 255, 0);
+  justify-content: center;
+}
