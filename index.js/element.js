@@ -35,7 +35,7 @@ const hendlePopupFoto = document.querySelector('.popup__image');
 const cardsImg = document.querySelector('.element__foto');
 let fullFotoTitle = document.querySelector('.popup__figcaption');
 
-const popupImageFull = document.querySelector('.popup__image_type_full');
+const popupImageFull = document.querySelector('.popup-full');
 
 function renderList () {
     const itemList = initialCards.map(composeItem);
