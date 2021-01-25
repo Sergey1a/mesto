@@ -1,12 +1,9 @@
 .popup__figcaption {
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 15px;
     color: white;
-    align-items: flex-end;
   }
