@@ -1,5 +1,5 @@
 .element__like {
-  background-image: url(/image/Vector\(3\).svg);
+  background-image: url(../../..//image/Vector\(3\).svg);
   background-position: center center;
   background-repeat: no-repeat;
   width: 22px;
@@ -17,4 +17,3 @@
   transition: 0.3s;
   transform: scale(1.2);
 }
-

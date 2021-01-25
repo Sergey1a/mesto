@@ -62,30 +62,21 @@
         <button type="button" class="popup__close popup__close_type_cards"></button>
         <form name="form" class="popup__form popup__form_type_submit">
           <h2 class="popup__title">Новое место</h2>
-          <input
-            type="text"
-            class="popup__input popup__input_type_title"
-            placeholder="Место"
-            name="name"
-          />
-          <input
-            type="text"
-            class="popup__input popup__input_type_image"
-            placeholder="Ссылка"
-            name="hobby"
-          />
-          <button type="submit" class="popup__button">Сохранить</button>
+          <input type="text" class="popup__input popup__input_type_title" placeholder="Место" name="name" />
+          <input type="text" class="popup__input popup__input_type_image" placeholder="Ссылка" name="hobby" />
+          <button type="submit" class="popup__button popup__button_add_image">Сохранить</button>
         </form>
       </div>
     </div>
-    <figure class="full-img">
-      <div class="full-img__container">
-        <img class="full-img__image" src="" alt="">
-        <figcaption class="full-img__title">
-        </figcaption>
-        <button class="full-img__close popup__img__button_close" type="button"></button>
+    <div class="popup  popup-image_type_full">
+      <div class="popup__img-container">
+        <button class="popup__close popup__close_type_full-img" type="button"></button>
+      <figure>
+        <img class="popup__image" src="" alt="">
+        <figcaption class="popup__figcaption"></figcaption>
+      </figure>
       </div>
-    </figure>
+    </div>
   </div>
     <script src="././index.js/popup.js"></script>
     <script src="././index.js/element.js"></script>

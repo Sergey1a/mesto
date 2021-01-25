@@ -2,6 +2,7 @@ const profileButtonNode = document.querySelector('.profile__name-edit');
 const popupNode = document.querySelector('.popup');
 const popupCloseNode = document.querySelector('.popup__close');
 const popupCloseNodeCardsImg = document.querySelector('.popup__close_type_cards');
+const closeImgPopup = document.querySelector('.popup__close_type_full-img');
 
 const profileUserNameNode = document.querySelector('.profile__user-name');
 const profileHobbyNode = document.querySelector('.profile__hobby');
@@ -12,6 +13,7 @@ const popupInputHobbyNode = document.querySelector('.popup__input_type_hobby');
 
 const buttonImageAdd = document.querySelector('.profile__image-edit');
 const popupCardImage = document.querySelector('.popup-image');
+const buttonImageSave = document.querySelector('.popup__button_add_image');
 
 //Вызов поп-ап
 function popupOpen(transmitted) {
@@ -23,6 +25,7 @@ function popupOpen(transmitted) {
 function handlePopupCloseClick() {
     popupNode.classList.remove('popup_visible');
     popupCardImage.classList.remove('popup_visible');
+    popupImageFull.classList.remove('popup_visible');
 };
 
 function hendleFormSubmit(event) {
@@ -31,16 +34,6 @@ function hendleFormSubmit(event) {
     profileUserNameNode.textContent = popupInputNameNode.value;
     handlePopupCloseClick();
 
-};
-//
-function inputImageAdd () {
-    debugger
-    const popupAddTitle = popupAddTitle.value;
-    const popupAddImage = popupAddImage.value;
-    const newItemHtml = composeItem ({name:popupAddTitle, link:popupAddImage});
-    cardsConteiner.prepend(newItemHtml);
-    titleElement.value = '';
-    cardsImg.value = '';
 };
 
 //ПОПАП редактирования профиля
@@ -60,6 +53,26 @@ popupCloseNode.addEventListener('click', function () {
 popupCloseNodeCardsImg.addEventListener('click', function () {
     handlePopupCloseClick(popupCardImage); 
 });
+
+//Закрыть попап фото
+closeImgPopup.addEventListener('click', function () {
+    handlePopupCloseClick(popupImageFull);
+});
+
+
 //Сабмит событие
 popupFormNode.addEventListener('submit',hendleFormSubmit);
-popupFormNodeImage.addEventListener('submit', hendleFormSubmit,);
+popupFormNodeImage.addEventListener('submit', hendleFormSubmit);
+
+buttonImageSave.addEventListener('click',addFormImage);
+
+function addFormImage () {
+    const newPopupAddTitle = popupAddTitle.value;
+    const newPopupAddImage = popupAddImage.value;
+    const newItemHtml = composeItem ({name:newPopupAddTitle, link:newPopupAddImage});
+
+    cardsConteiner.prepend(newItemHtml);
+    popupAddTitle.value = '';
+    popupAddImage.value = '';
+
+};
