@@ -1,0 +1,10 @@
+.popup__button_invalid {
+  background: #E5E5E5;
+  border: 1px solid #0000001e;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.popup__button_invalid:hover{
+  opacity: 1;
+}

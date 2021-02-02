@@ -8,7 +8,7 @@ const profileUserNameNode = document.querySelector('.profile__user-name');
 const profileHobbyNode = document.querySelector('.profile__hobby');
 const popupFormNode = document.querySelector('.popup__form');
 const popupFormNodeImage = document.querySelector('.popup__form_type_submit');
-const popupInputNameNode = document.querySelector('.popup__input_type_name');
+const popupInputNameNode = popupFormNode.querySelector('.popup__input_type_name');
 const popupInputHobbyNode = document.querySelector('.popup__input_type_hobby');
 
 const buttonImageAdd = document.querySelector('.profile__image-edit');
@@ -61,7 +61,7 @@ cardsImg.addEventListener('click',() => {
 function handleDeleteCard (event){
     event.target.closest('.element__card').remove();
 };
-
+// Лайк функция ===================
 function toggleLike (event){
     event.target.classList.toggle('element__like_active');
 };
@@ -124,3 +124,63 @@ closeImgPopup.addEventListener('click', () => {
 });
 
 renderList();
+
+//Валидация формы инпут ============================
+
+function showError (form,input){
+    const error = form.querySelector(`#${input.id}-error`);
+    error.textContent = input.validationMessage;
+    input.classList.add('popup__input_type_invalide');
+}
+
+function hideError (form,input){
+    const error = form.querySelector(`#${input.id}-error`);
+    error.textContent = '';
+    input.classList.remove('popup__input_type_invalide');
+}
+
+function checkInputValidity (form,input){
+    if(input.validity.valid){
+        hideError(form,input);
+    }else{
+        showError (form,input);
+    }
+};
+
+function setButtonState (button, active){
+    if(active){
+        button.classList.remove('popup__button_invalid');
+        button.disabled = false;
+    }else {
+        button.classList.add('popup__button_invalid');
+        button.disabled = "disabled";
+    }
+};
+
+function setEventListener(form){
+    const inputList = form.querySelectorAll('.popup__input');
+    const buttonDisableValid = form.querySelector('.popup__button');
+
+    inputList.forEach( input => {
+      input.addEventListener('input', (evt) => {
+        checkInputValidity(form,input);
+        setButtonState(buttonDisableValid, form.checkValidity());
+        });
+    });
+};
+
+function enableValidation () {
+    const forms = document.querySelectorAll('.popup__form');
+    forms.forEach(form => {
+        setEventListener(form);
+
+    form.addEventListener('submit', (evt) => {
+        evt.preventDefault();
+    });
+
+    const buttonDisableValid = form.querySelector('.popup__button');
+    setButtonState(buttonDisableValid, form.checkValidity());
+});
+};
+
+enableValidation();
