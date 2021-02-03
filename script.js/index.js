@@ -1,6 +1,6 @@
 const profileButtonNode = document.querySelector('.profile__name-edit');
 const profilePopup = document.querySelector('.popup-profile');
-const profilePopupCloseBtn = profilePopup.querySelector('.popup__close');
+const profilePopupCloseBtn = profilePopup.querySelector('.popup__close_type_profile');
 const popupCloseNodeCardsImg = document.querySelector('.popup__close_type_cards');
 const closeImgPopup = document.querySelector('.popup__close_type_full-img');
 
@@ -24,6 +24,7 @@ const hendlePopupPhoto = document.querySelector('.popup__image');
 const fullFotoTitle = document.querySelector('.popup__figcaption');
 
 const popupImageFull = document.querySelector('.popup-full');
+const popups = document.querySelectorAll('.popup');
 
 
 function renderList () {
@@ -73,11 +74,16 @@ function closeEscPopup (evt) {
 };
 
 //Overlay закрытие попап================
-function clickOverlayClose (evt) {
-    if(evt.target=== evt.currentTarget){
-        popupClose(document.querySelector('.popup_visible'));
-    };
-};
+popups.forEach((popup) => {
+    popup.addEventListener('click',(evt) => {
+        if(evt.target.classList.contains('popup_visible')){
+            popupClose(popup);
+        }
+        if (evt.target.classList.contains('popup__close')) {
+            closePopup(popup)
+        }
+    });
+});
 
 //Вызов поп-ап   ============================
 function popupOpen(popup) {
@@ -119,7 +125,6 @@ profilePopupCloseBtn.addEventListener('click', () => {
 });
 
 popupFormNode.addEventListener('submit',handleFormSubmit);
-profilePopup.addEventListener('click',clickOverlayClose);
 
 
 // ПОПАП добавления карточек   ================================
@@ -132,14 +137,11 @@ popupCloseNodeCardsImg.addEventListener('click', () => {
 });
 
 popupFormNodeImage.addEventListener('submit', handleFormAddCardsSubmit);
-popupCardImage.addEventListener('click',clickOverlayClose)
 
 
 //Закрыть попап фото ==========================
 closeImgPopup.addEventListener('click', () => {
     popupClose(popupImageFull);
 });
-
-popupImageFull.addEventListener('click',clickOverlayClose)
 
 renderList();
