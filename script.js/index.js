@@ -92,6 +92,7 @@ function handleFormAddCardsSubmit(event) {
     popupFormNodeImage.reset();
 };
 
+
 //ПОПАП редактирования профиля  ============================
 profileButtonNode.addEventListener('click', () => {
     popupInputHobbyNode.value = profileHobbyNode.textContent;
@@ -123,64 +124,17 @@ closeImgPopup.addEventListener('click', () => {
     popupClose(popupImageFull);
 });
 
-renderList();
-
-//Валидация формы инпут ============================
-
-function showError (form,input){
-    const error = form.querySelector(`#${input.id}-error`);
-    error.textContent = input.validationMessage;
-    input.classList.add('popup__input_type_invalide');
-}
-
-function hideError (form,input){
-    const error = form.querySelector(`#${input.id}-error`);
-    error.textContent = '';
-    input.classList.remove('popup__input_type_invalide');
-}
-
-function checkInputValidity (form,input){
-    if(input.validity.valid){
-        hideError(form,input);
-    }else{
-        showError (form,input);
-    }
-};
-
-function setButtonState (button, active){
-    if(active){
-        button.classList.remove('popup__button_invalid');
-        button.disabled = false;
-    }else {
-        button.classList.add('popup__button_invalid');
-        button.disabled = "disabled";
-    }
-};
-
-function setEventListener(form){
-    const inputList = form.querySelectorAll('.popup__input');
-    const buttonDisableValid = form.querySelector('.popup__button');
-
-    inputList.forEach( input => {
-      input.addEventListener('input', (evt) => {
-        checkInputValidity(form,input);
-        setButtonState(buttonDisableValid, form.checkValidity());
-        });
-    });
-};
-
-function enableValidation () {
-    const forms = document.querySelectorAll('.popup__form');
-    forms.forEach(form => {
-        setEventListener(form);
-
-    form.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-    });
-
-    const buttonDisableValid = form.querySelector('.popup__button');
-    setButtonState(buttonDisableValid, form.checkValidity());
+//Закрытие попап на Esc================
+document.addEventListener('keydown', (evt) => {
+    if (evt.key === "Escape") {
+      popupClose(document.querySelector('.popup_visible'));
+    };
 });
-};
 
-enableValidation();
+document.addEventListener('keydown', (evt) => {
+    if (evt.key === "Escape") {
+      popupClose(document.querySelector('.popup_visible'));
+    };
+});
+
+renderList();
