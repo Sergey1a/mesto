@@ -1,12 +1,12 @@
 const profileButtonNode = document.querySelector('.profile__name-edit');
-const popupNode = document.querySelector('.popup');
-const popupCloseNode = document.querySelector('.popup__close');
+const profilePopup = document.querySelector('.popup-profile');
+const profilePopupCloseBtn = profilePopup.querySelector('.popup__close');
 const popupCloseNodeCardsImg = document.querySelector('.popup__close_type_cards');
 const closeImgPopup = document.querySelector('.popup__close_type_full-img');
 
 const profileUserNameNode = document.querySelector('.profile__user-name');
 const profileHobbyNode = document.querySelector('.profile__hobby');
-const popupFormNode = document.querySelector('.popup__form');
+const popupFormNode = profilePopup.querySelector('.popup__form');
 const popupFormNodeImage = document.querySelector('.popup__form_type_submit');
 const popupInputNameNode = popupFormNode.querySelector('.popup__input_type_name');
 const popupInputHobbyNode = document.querySelector('.popup__input_type_hobby');
@@ -56,7 +56,6 @@ cardsImg.addEventListener('click',() => {
 
     return newItem;
 };
-
 // Удаление карточек  =========================
 function handleDeleteCard (event){
     event.target.closest('.element__card').remove();
@@ -96,7 +95,7 @@ function handleFormSubmit(event) {
     event.preventDefault();
     profileHobbyNode.textContent = popupInputHobbyNode.value;
     profileUserNameNode.textContent = popupInputNameNode.value;
-    popupClose(popupNode);
+    popupClose(profilePopup);
 };
 
 function handleFormAddCardsSubmit(event) {
@@ -112,15 +111,15 @@ function handleFormAddCardsSubmit(event) {
 profileButtonNode.addEventListener('click', () => {
     popupInputHobbyNode.value = profileHobbyNode.textContent;
     popupInputNameNode.value = profileUserNameNode.textContent;
-    popupOpen(popupNode);
+    popupOpen(profilePopup);
 });
 
-popupCloseNode.addEventListener('click', () => {
-    popupClose(popupNode);
+profilePopupCloseBtn.addEventListener('click', () => {
+    popupClose(profilePopup);
 });
 
 popupFormNode.addEventListener('submit',handleFormSubmit);
-popupNode.addEventListener('click',clickOverlayClose);
+profilePopup.addEventListener('click',clickOverlayClose);
 
 
 // ПОПАП добавления карточек   ================================

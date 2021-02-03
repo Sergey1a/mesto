@@ -31,6 +31,7 @@
 /*POPUP*/
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/popup-profile/popup-profile.css);
 @import url(../blocks/popup/__figcaption/popup__figcaption.css);
 @import url(../blocks/popup/__img-container/popup__img-container.css);
 @import url(../blocks/popup/_visible/popup_visible.css);
