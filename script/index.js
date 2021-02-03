@@ -1,29 +1,25 @@
 const profileButtonNode = document.querySelector('.profile__name-edit');
-const profilePopup = document.querySelector('.popup-profile');
-const profilePopupCloseBtn = profilePopup.querySelector('.popup__close_type_profile');
-const popupCloseNodeCardsImg = document.querySelector('.popup__close_type_cards');
-const closeImgPopup = document.querySelector('.popup__close_type_full-img');
-
 const profileUserNameNode = document.querySelector('.profile__user-name');
 const profileHobbyNode = document.querySelector('.profile__hobby');
-const popupFormNode = profilePopup.querySelector('.popup__form');
-const popupFormNodeImage = document.querySelector('.popup__form_type_submit');
-const popupInputNameNode = popupFormNode.querySelector('.popup__input_type_name');
-const popupInputHobbyNode = document.querySelector('.popup__input_type_hobby');
-
 const buttonImageAdd = document.querySelector('.profile__image-edit');
+
+const profilePopup = document.querySelector('.popup-profile');
+const popupFormNode = profilePopup.querySelector('.popup__form');
+const popupInputNameNode = profilePopup.querySelector('.popup__input_type_name');
+const popupInputHobbyNode = profilePopup.querySelector('.popup__input_type_hobby');
+
 const popupCardImage = document.querySelector('.popup-image');
+const popupFormNodeImage = popupCardImage.querySelector('.popup__form_type_submit');
+const popupAddTitle = popupCardImage.querySelector('.popup__input_type_title');
+const popupAddImage = popupCardImage.querySelector('.popup__input_type_image');
 
 const cardsContainer = document.querySelector('.element');
 const templateElement = document.querySelector('#template-element');
 
-const popupAddTitle = document.querySelector('.popup__input_type_title');
-const popupAddImage = document.querySelector('.popup__input_type_image');
-
-const hendlePopupPhoto = document.querySelector('.popup__image');
-const fullFotoTitle = document.querySelector('.popup__figcaption');
-
 const popupImageFull = document.querySelector('.popup-full');
+const hendlePopupPhoto = popupImageFull.querySelector('.popup__image');
+const fullFotoTitle = popupImageFull.querySelector('.popup__figcaption');
+
 const popups = document.querySelectorAll('.popup');
 
 
@@ -80,7 +76,7 @@ popups.forEach((popup) => {
             popupClose(popup);
         }
         if (evt.target.classList.contains('popup__close')) {
-            closePopup(popup)
+            popupClose(popup);
         }
     });
 });
@@ -109,8 +105,8 @@ function handleFormAddCardsSubmit(event) {
     const newItemHtml = composeItem ({name:popupAddTitle.value, link:popupAddImage.value});
 
     cardsContainer.prepend(newItemHtml);
-    popupClose(popupCardImage);
     popupFormNodeImage.reset();
+    popupClose(popupCardImage);
 };
 
 //ПОПАП редактирования профиля  ============================
@@ -120,28 +116,13 @@ profileButtonNode.addEventListener('click', () => {
     popupOpen(profilePopup);
 });
 
-profilePopupCloseBtn.addEventListener('click', () => {
-    popupClose(profilePopup);
-});
-
 popupFormNode.addEventListener('submit',handleFormSubmit);
-
 
 // ПОПАП добавления карточек   ================================
 buttonImageAdd.addEventListener('click', () => {
     popupOpen(popupCardImage);
 });
 
-popupCloseNodeCardsImg.addEventListener('click', () => {
-    popupClose(popupCardImage); 
-});
-
 popupFormNodeImage.addEventListener('submit', handleFormAddCardsSubmit);
-
-
-//Закрыть попап фото ==========================
-closeImgPopup.addEventListener('click', () => {
-    popupClose(popupImageFull);
-});
 
 renderList();
