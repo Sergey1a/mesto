@@ -66,13 +66,29 @@ function toggleLike (event){
     event.target.classList.toggle('element__like_active');
 };
 
+//Закрытие попап на Esc================
+function closeEscPopup (evt) {
+    if (evt.key === "Escape") {
+      popupClose(document.querySelector('.popup_visible'));
+    };
+};
+
+//Overlay закрытие попап================
+function clickOverlayClose (evt) {
+    if(evt.target=== evt.currentTarget){
+        popupClose(document.querySelector('.popup_visible'));
+    };
+};
+
 //Вызов поп-ап   ============================
 function popupOpen(popup) {
     popup.classList.add('popup_visible');
+    document.addEventListener('keydown', closeEscPopup);
 };
 //закрыть поп-ап
 function popupClose(popup) {
     popup.classList.remove('popup_visible');
+    document.removeEventListener('keydown', closeEscPopup);
 };
 
 // Функция сабмит  ====================================
@@ -92,7 +108,6 @@ function handleFormAddCardsSubmit(event) {
     popupFormNodeImage.reset();
 };
 
-
 //ПОПАП редактирования профиля  ============================
 profileButtonNode.addEventListener('click', () => {
     popupInputHobbyNode.value = profileHobbyNode.textContent;
@@ -102,9 +117,10 @@ profileButtonNode.addEventListener('click', () => {
 
 popupCloseNode.addEventListener('click', () => {
     popupClose(popupNode);
-  });
+});
 
 popupFormNode.addEventListener('submit',handleFormSubmit);
+popupNode.addEventListener('click',clickOverlayClose);
 
 
 // ПОПАП добавления карточек   ================================
@@ -117,6 +133,7 @@ popupCloseNodeCardsImg.addEventListener('click', () => {
 });
 
 popupFormNodeImage.addEventListener('submit', handleFormAddCardsSubmit);
+popupCardImage.addEventListener('click',clickOverlayClose)
 
 
 //Закрыть попап фото ==========================
@@ -124,17 +141,6 @@ closeImgPopup.addEventListener('click', () => {
     popupClose(popupImageFull);
 });
 
-//Закрытие попап на Esc================
-document.addEventListener('keydown', (evt) => {
-    if (evt.key === "Escape") {
-      popupClose(document.querySelector('.popup_visible'));
-    };
-});
-
-document.addEventListener('keydown', (evt) => {
-    if (evt.key === "Escape") {
-      popupClose(document.querySelector('.popup_visible'));
-    };
-});
+popupImageFull.addEventListener('click',clickOverlayClose)
 
 renderList();
