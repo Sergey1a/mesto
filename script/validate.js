@@ -23,7 +23,7 @@ function checkInputValidity (form,input,config){
 
 //Активность кнопки сохранить=================
 
-function setButtonState (button, active,config){
+function setButtonState (button,active,config){
     if(active){
         button.classList.remove(config.inactiveButtonClass);
         button.disabled = false;

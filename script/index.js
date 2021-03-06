@@ -21,46 +21,8 @@ const hendlePopupPhoto = popupImageFull.querySelector('.popup__image');
 const fullFotoTitle = popupImageFull.querySelector('.popup__figcaption');
 
 const popups = document.querySelectorAll('.popup');
-
-
-function renderList () {
-    const itemList = initialCards.map(composeItem);
-    cardsContainer.append(...itemList);
-}
-// Темплей  =====================
-function composeItem (item){
-    const newItem = templateElement.content.cloneNode(true);
-    const titleElement = newItem.querySelector('.element__title');
-    const cardsImg = newItem.querySelector('.element__foto');
-
-    newItem.querySelector('.element__like').addEventListener('click', toggleLike);
-
-    const buttonRemove = newItem.querySelector('.element__remove');
-      buttonRemove.addEventListener('click',handleDeleteCard);
-
-      titleElement.textContent = item.name;
-      cardsImg.src = item.link;
-      cardsImg.alt = item.name;
-    
-
-   //поп-ап фото  =======================
-cardsImg.addEventListener('click',() => {
-    popupOpen(popupImageFull);
-    hendlePopupPhoto.src = item.link;
-    hendlePopupPhoto.alt = item.name;
-    fullFotoTitle.textContent = item.name;
-});
-
-    return newItem;
-};
-// Удаление карточек  =========================
-function handleDeleteCard (event){
-    event.target.closest('.element__card').remove();
-};
-// Лайк функция ===================
-function toggleLike (event){
-    event.target.classList.toggle('element__like_active');
-};
+const cardsImg = document.querySelector(".element__foto")
+const titleElement = document.querySelector('.element__title');
 
 //Закрытие попап на Esc================
 function closeEscPopup (evt) {
@@ -102,12 +64,33 @@ function handleFormSubmit(event) {
 
 function handleFormAddCardsSubmit(event) {
     event.preventDefault();
-    const newItemHtml = composeItem ({name:popupAddTitle.value, link:popupAddImage.value});
+    const newItemHtml = ({name:popupAddTitle.value, link:popupAddImage.value});
 
-    cardsContainer.prepend(newItemHtml);
+    cardsContainer.prepend(createCard(newItemHtml));
     popupFormNodeImage.reset();
     popupClose(popupCardImage);
 };
+
+function handleCardClick(name,link) {
+    hendlePopupPhoto.src = link;
+    hendlePopupPhoto.alt = name;
+    fullFotoTitle.textContent = name;
+      popupOpen(popupImageFull);
+}
+
+function createCard (data){
+    const card = new Card(
+        data,
+        "#template-element",
+        handleCardClick.bind(data.name,data.link)
+    );
+    const cardElement = ()=> card.renderCard(item);
+    return cardElement;
+}
+
+initialCards.forEach((item) => {
+    cardsContainer.prepend(createCard(item));
+});
 
 //ПОПАП редактирования профиля  ============================
 profileButtonNode.addEventListener('click', () => {
@@ -125,4 +108,13 @@ buttonImageAdd.addEventListener('click', () => {
 
 popupFormNodeImage.addEventListener('submit', handleFormAddCardsSubmit);
 
-renderList();
+
+const validationConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_invalid',
+    inputErrorClass: 'popup__input_type_invalide',
+  };
+
+  validationConfig
