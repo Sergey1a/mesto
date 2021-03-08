@@ -58,13 +58,13 @@ function enableValidation (config) {
     setButtonState(buttonDisableValid, form.checkValidity(),config);
 });
 };
-
 const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_invalid',
     inputErrorClass: 'popup__input_type_invalide',
-  }; 
+};
 
 enableValidation(validationConfig);
+
