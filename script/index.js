@@ -1,4 +1,5 @@
-import {FormValidator} from "/script/FormValidator.js"
+import {Card} from "./Card.js";
+import {FormValidator} from "./FormValidator.js";
 
 const profileButtonNode = document.querySelector('.profile__name-edit');
 const profileUserNameNode = document.querySelector('.profile__user-name');
@@ -151,8 +152,9 @@ const validationConfig = {
   };
 
 
-  const formList = Array.from(document.querySelectorAll(".form"));
+  const formList = Array.from(document.querySelectorAll(".popup__form"));
   formList.forEach((forms) => {
     const formValidation = new FormValidator(validationConfig,forms);
+    formValidation.enableValidation();
   });
 
