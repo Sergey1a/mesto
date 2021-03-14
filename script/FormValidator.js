@@ -1,6 +1,6 @@
 
 export class FormValidator{
-    constructor(validationConfig,forms){
+    constructor(validationConfig,forms,popupFormNode){
         this._formSelector =  validationConfig.formSelector
         this._inputSelector =  validationConfig.inputSelector
         this._submitButtonSelector = validationConfig.submitButtonSelector
@@ -8,13 +8,14 @@ export class FormValidator{
         this._inputErrorClass = validationConfig.inputErrorClass
         this._errorClass = validationConfig.errorClass
         this._forms = forms  
+        this._popupFormNode = popupFormNode
         
         this._inputs = Array.from(this._forms.querySelectorAll(this._inputSelector));
         this._errors = Array.from(this._forms.querySelectorAll(`#${this._inputErrorClass.id}-error`));
     }
 
     // disable button
-    _disableSubmitButton() {
+    disableSubmitButton() {
         this._button.setAttribute("disabled", true);
         this._button.classList.add("popup__button_invalid");
     }
@@ -22,7 +23,7 @@ export class FormValidator{
     // Переключение состояния кнопки
     _toggleSubmit() {
         if (this._hasInvalidInput()) {
-        this._disableSubmitButton();
+        this.disableSubmitButton();
         } else {
         this._button.removeAttribute("disabled", true);
         this._button.classList.remove("popup__button_invalid");

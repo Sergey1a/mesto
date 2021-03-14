@@ -6,4 +6,10 @@
   object-fit: cover;
   object-position: center;
   display: block;
+  cursor: pointer;
+}
+
+.element__foto:hover{
+  opacity: 0.8;
+  transition: 0.3s;
 }
