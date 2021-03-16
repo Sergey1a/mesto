@@ -1,17 +1,17 @@
 
 export class FormValidator{
-    constructor(validationConfig,forms,popupFormNode){
+    constructor(validationConfig,popupFormNode,popupFormNodeImage){
         this._formSelector =  validationConfig.formSelector
         this._inputSelector =  validationConfig.inputSelector
         this._submitButtonSelector = validationConfig.submitButtonSelector
         this._inactiveButtonClass = validationConfig.inactiveButtonClass
         this._inputErrorClass = validationConfig.inputErrorClass
-        this._errorClass = validationConfig.errorClass
-        this._forms = forms  
+        this._errorClass = validationConfig.errorClass  
         this._popupFormNode = popupFormNode
+        this._popupFormNodeImage = popupFormNodeImage
         
-        this._inputs = Array.from(this._forms.querySelectorAll(this._inputSelector));
-        this._errors = Array.from(this._forms.querySelectorAll(`#${this._inputErrorClass.id}-error`));
+        this._inputs = Array.from(this._popupFormNode.querySelectorAll(this._inputSelector));
+        this._errors = Array.from(this._popupFormNode.querySelectorAll(`#${this._inputErrorClass.id}-error`));
     }
 
     // disable button
@@ -40,7 +40,7 @@ export class FormValidator{
     // Проверка элемента формы на валидность
     _isValid(element) {
         this._element = element;
-        this._errorElement = this._forms.querySelector(`#${this._element.id}-error`);
+        this._errorElement = this._popupFormNode.querySelector(`#${this._element.id}-error`);
         !this._element.validity.valid ? this._showError() : this._hideError();
     }
 
@@ -72,7 +72,7 @@ export class FormValidator{
 
     // Установка слушателей
     _setEventListeners() {
-        this._button = this._forms.querySelector(this._submitButtonSelector);
+        this._button = this._popupFormNode.querySelector(this._submitButtonSelector);
         this._toggleSubmit();
         this._inputs.forEach((element) => {
         element.addEventListener("input", () => {
@@ -84,7 +84,7 @@ export class FormValidator{
     // Валидация форм
     enableValidation() {
         this._setEventListeners();
-        this._forms.addEventListener(
+        this._popupFormNode.addEventListener(
         "submit",
         (evt) => evt.preventDefault(),
         this._toggleSubmit()

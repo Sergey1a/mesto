@@ -25,9 +25,11 @@ const fullFotoTitle = popupImageFull.querySelector('.popup__figcaption');
 
 const popups = document.querySelectorAll('.popup');
 
+const escape = "Escape"
+
 //Закрытие попап на Esc================
 const  closeEscPopup = (evt) => {
-    if (evt.key === "Escape") {
+    if (evt.key === escape) {
         closePopup(document.querySelector('.popup_visible'));
     };
 };
@@ -56,14 +58,14 @@ function closePopup(popup) {
 };
 
 // Функция сабмит  ====================================
-function handleFormSubmit(event) {
+function submitProfileForm(event) {
     event.preventDefault();
     profileHobbyNode.textContent = popupInputHobbyNode.value;
     profileUserNameNode.textContent = popupInputNameNode.value;
     closePopup(profilePopup);
 };
 
-function handleFormAddCardsSubmit(event) {
+function submitAddCardForm(event) {
     event.preventDefault();
     const newItemHtml = ({name:popupAddTitle.value, link:popupAddImage.value});
 
@@ -100,14 +102,14 @@ profileButtonNode.addEventListener('click', () => {
     openPopup(profilePopup);
 });
 
-popupFormNode.addEventListener('submit',handleFormSubmit);
+popupFormNode.addEventListener('submit',submitProfileForm);
 
 // ПОПАП добавления карточек   ================================
 buttonImageAdd.addEventListener('click', () => {
     openPopup(popupCardImage);
 });
 
-popupFormNodeImage.addEventListener('submit', handleFormAddCardsSubmit);
+popupFormNodeImage.addEventListener('submit', submitAddCardForm);
 
 //Перебор массива для карточек===============
 initialCards.forEach((item) => {
@@ -122,13 +124,6 @@ const validationConfig = {
     inputErrorClass: 'popup__input_type_invalide',
     errorClass: ".popup_visible",
   };
-
-
-const formList = Array.from(document.querySelectorAll(".popup__form"));
-formList.forEach((forms) => {
-    const formValidation = new FormValidator(validationConfig,forms);
-    formValidation.enableValidation();
-});
 
 const formProfileValidation = new FormValidator(validationConfig,popupFormNode);
 formProfileValidation.enableValidation();
