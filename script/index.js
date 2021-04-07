@@ -17,8 +17,8 @@ const popupInputHobbyNode = profilePopup.querySelector('.popup__input_type_hobby
 
 const popupCardImage = document.querySelector('.popup-image');
 const popupFormNodeImage = popupCardImage.querySelector('.popup__form_type_submit');
-const popupAddTitle = popupCardImage.querySelector('.popup__input_type_title');
-const popupAddImage = popupCardImage.querySelector('.popup__input_type_image');
+// const popupAddTitle = popupCardImage.querySelector('.popup__input_type_title');
+// const popupAddImage = popupCardImage.querySelector('.popup__input_type_image');
 
 const cardsContainer = document.querySelector('.element');
 
@@ -31,42 +31,42 @@ const popups = document.querySelectorAll('.popup');
 const escape = "Escape"
 
 //Закрытие попап на Esc================
-const  closeEscPopup = (evt) => {
-    if (evt.key === escape) {
-        closePopup(document.querySelector('.popup_visible'));
-    };
-};
+// const  closeEscPopup = (evt) => {
+//     if (evt.key === escape) {
+//         closePopup(document.querySelector('.popup_visible'));
+//     };
+// };
 
 //Overlay закрытие попап================
-popups.forEach((popup) => {
-    popup.addEventListener('click',(evt) => {
-        if(evt.target.classList.contains('popup_visible')){
-            closePopup(popup);
-        }
-        if (evt.target.classList.contains('popup__close')) {
-            closePopup(popup);
-        }
-    });
-});
+// popups.forEach((popup) => {
+//     popup.addEventListener('click',(evt) => {
+//         if(evt.target.classList.contains('popup_visible')){
+//             closePopup(popup);
+//         }
+//         if (evt.target.classList.contains('popup__close')) {
+//             closePopup(popup);
+//         }
+//     });
+// });
 
 //Вызов поп-ап   ============================
-function openPopup(popup) {
-    popup.classList.add('popup_visible');
-    document.addEventListener('keydown', closeEscPopup);
-};
-//закрыть поп-ап
-function closePopup(popup) {
-    popup.classList.remove('popup_visible');
-    document.removeEventListener('keydown', closeEscPopup);
-};
+// function openPopup(popup) {
+//     popup.classList.add('popup_visible');
+//     document.addEventListener('keydown', closeEscPopup);
+// };
+// //закрыть поп-ап
+// function closePopup(popup) {
+//     popup.classList.remove('popup_visible');
+//     document.removeEventListener('keydown', closeEscPopup);
+// };
 
-// Функция сабмит  ====================================
-function submitProfileForm(event) {
-    event.preventDefault();
-    profileHobbyNode.textContent = popupInputHobbyNode.value;
-    profileUserNameNode.textContent = popupInputNameNode.value;
-    closePopup(profilePopup);
-};
+// // Функция сабмит  ====================================
+// function submitProfileForm(event) {
+//     event.preventDefault();
+//     profileHobbyNode.textContent = popupInputHobbyNode.value;
+//     profileUserNameNode.textContent = popupInputNameNode.value;
+//     closePopup(profilePopup);
+// };
 
 // function submitAddCardForm(event) {
 //     event.preventDefault();
@@ -107,12 +107,17 @@ const cardList = new Section(
 
 const popupWithForm = new PopupWithForm(popupCardImage,
     {handleFormSubmit:(item)=>{
-        const card = new Card(item,"#template-element",handleCardClick);
+        const card = new Card(item,"#template-element");
         const cardElement = card.generateCard();
         cardList.addItem(cardElement);
     }
-    });
-popupWithForm.setEventListeners();
+});
+
+popupWithForm.close();
+
+buttonImageAdd.addEventListener('click', () => {
+    popupWithForm.open();
+});
 
 
 //ПОПАП редактирования профиля  ============================
@@ -122,12 +127,9 @@ profileButtonNode.addEventListener('click', () => {
     openPopup(profilePopup);
 });
 
-popupFormNode.addEventListener('submit',submitProfileForm);
+//popupFormNode.addEventListener('submit',submitProfileForm);
 
 // ПОПАП добавления карточек   ================================
-buttonImageAdd.addEventListener('click', () => {
-    openPopup(popupCardImage);
-});
 
 //popupFormNodeImage.addEventListener('submit', submitAddCardForm);
 
