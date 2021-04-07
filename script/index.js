@@ -1,6 +1,9 @@
 import {Card} from "./Card.js";
 import {FormValidator} from "./FormValidator.js";
-import {initialCards} from "./initialCards.js"
+import {initialCards} from "./initialCards.js";
+import {Section} from "./Section.js";
+//import {PopupWithImage} from "./PopupWithImage.js";
+import {PopupWithForm} from "./PopupWithForm.js";
 
 const profileButtonNode = document.querySelector('.profile__name-edit');
 const profileUserNameNode = document.querySelector('.profile__user-name');
@@ -65,15 +68,15 @@ function submitProfileForm(event) {
     closePopup(profilePopup);
 };
 
-function submitAddCardForm(event) {
-    event.preventDefault();
-    const newItemHtml = ({name:popupAddTitle.value, link:popupAddImage.value});
+// function submitAddCardForm(event) {
+//     event.preventDefault();
+//     const newItemHtml = ({name:popupAddTitle.value, link:popupAddImage.value});
 
-    cardsContainer.prepend(createCard(newItemHtml));
-    popupFormNodeImage.reset();
-    closePopup(popupCardImage);
-    formAddCardValidation.disableSubmitButton()
-};
+//     cardsContainer.prepend(createCard(newItemHtml));
+//     popupFormNodeImage.reset();
+//     closePopup(popupCardImage);
+//     formAddCardValidation.disableSubmitButton()
+// };
 
 //Попап фулл фото=====================
 function handleCardClick(name,link) {
@@ -84,15 +87,32 @@ function handleCardClick(name,link) {
 }
 
 //Создание карточки=============
-function createCard  (item) {
-    const card = new Card(
-        item,
-        "#template-element",
-        handleCardClick
-    );
-    const cardElement = card.generateCard();
-    return cardElement;
-};
+
+const cardList = new Section(
+    {
+    data: initialCards,
+    renderer: (item)=>{
+        const card = new Card(item,"#template-element",handleCardClick);
+        const cardElement = card.generateCard();
+        cardList.addItem(cardElement);
+    }},
+    cardsContainer,);
+
+    cardList.renderItems();
+
+//Класс Попап====================
+
+//const popupWithImage = new PopupWithImage(hendlePopupPhoto);
+//popupWithImage.open();
+
+const popupWithForm = new PopupWithForm(popupCardImage,
+    {handleFormSubmit:(item)=>{
+        const card = new Card(item,"#template-element",handleCardClick);
+        const cardElement = card.generateCard();
+        cardList.addItem(cardElement);
+    }
+    });
+popupWithForm.setEventListeners();
 
 
 //ПОПАП редактирования профиля  ============================
@@ -109,12 +129,7 @@ buttonImageAdd.addEventListener('click', () => {
     openPopup(popupCardImage);
 });
 
-popupFormNodeImage.addEventListener('submit', submitAddCardForm);
-
-//Перебор массива для карточек===============
-initialCards.forEach((item) => {
-    cardsContainer.prepend(createCard(item));
-});
+//popupFormNodeImage.addEventListener('submit', submitAddCardForm);
 
 const validationConfig = {
     formSelector: '.popup__form',
@@ -123,6 +138,7 @@ const validationConfig = {
     inactiveButtonClass: 'popup__button_invalid',
     inputErrorClass: 'popup__input_type_invalide',
     errorClass: ".popup_visible",
+    popupSelector: '.popup',
   };
 
 const formProfileValidation = new FormValidator(validationConfig,popupFormNode);

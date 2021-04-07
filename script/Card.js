@@ -1,6 +1,6 @@
-
 export class Card{
     constructor(item,cardTemplate,handleCardClick){
+        this._item = item;
         this._name = item.name
         this._link = item.link
         this._cardTemplate = cardTemplate

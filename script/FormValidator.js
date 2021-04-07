@@ -59,16 +59,16 @@ export class FormValidator{
     }
 
     //* Скрытие ошибок и очистка полей
-    // hideAllErrors() {
-    //     this._errors.forEach((error) => {
-    //     error.classList.remove(this._errorClass);
-    //     error.textContent = "";
-    //     });
-    //     this._inputs.forEach((input) => {
-    //     input.classList.remove(this._inputErrorClass);
-    //     });
-    //     this._disableSubmitButton();
-    // }
+    hideAllErrors() {
+        this._errors.forEach((error) => {
+        error.classList.remove(this._errorClass);
+        error.textContent = null;
+        });
+        this._inputs.forEach((input) => {
+        input.classList.remove(this._inputErrorClass);
+        });
+        this._disableSubmitButton();
+    }
 
     // Установка слушателей
     _setEventListeners() {
