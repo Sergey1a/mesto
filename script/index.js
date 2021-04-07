@@ -30,6 +30,65 @@ const popups = document.querySelectorAll('.popup');
 
 const escape = "Escape"
 
+
+
+const cardList = new Section(
+    {
+    data: initialCards,
+    renderer: (item)=>{
+        const card = new Card(item,"#template-element",handleCardClick);
+        const cardElement = card.generateCard();
+        cardList.addItem(cardElement);
+    }},
+    cardsContainer,);
+
+    cardList.renderItems();
+
+    const popupAddCardWithForm = new PopupWithForm(popupCardImage,
+        {handleFormSubmit:(item)=>{
+            const card = new Card(item,"#template-element");
+            const cardElement = card.generateCard();
+            cardList.addItem(cardElement);
+        }
+    });
+    
+    buttonImageAdd.addEventListener('click', () => {
+        popupAddCardWithForm.open();
+    });
+    
+    
+    const popupProfileWithForm = new PopupWithForm(profilePopup,
+        {handleFormSubmit:(item)=>{
+        }
+    });
+    
+    profileButtonNode.addEventListener('click', () => {
+        popupProfileWithForm.open();
+    });
+
+
+
+
+    const validationConfig = {
+        formSelector: '.popup__form',
+        inputSelector: '.popup__input',
+        submitButtonSelector: '.popup__button',
+        inactiveButtonClass: 'popup__button_invalid',
+        inputErrorClass: 'popup__input_type_invalide',
+        errorClass: ".popup_visible",
+        popupSelector: '.popup',
+      };
+    
+    const formProfileValidation = new FormValidator(validationConfig,popupFormNode);
+    formProfileValidation.enableValidation();
+    
+    const formAddCardValidation = new FormValidator(validationConfig,popupFormNodeImage);
+    formAddCardValidation.enableValidation();
+
+
+
+
+
 //Закрытие попап на Esc================
 // const  closeEscPopup = (evt) => {
 //     if (evt.key === escape) {
@@ -78,74 +137,27 @@ const escape = "Escape"
 //     formAddCardValidation.disableSubmitButton()
 // };
 
-//Попап фулл фото=====================
-function handleCardClick(name,link) {
-    hendlePopupPhoto.src = link;
-    hendlePopupPhoto.alt = name;
-    fullFotoTitle.textContent = name;
+function handleCardClick() {
     openPopup(popupImageFull);
 }
 
 //Создание карточки=============
-
-const cardList = new Section(
-    {
-    data: initialCards,
-    renderer: (item)=>{
-        const card = new Card(item,"#template-element",handleCardClick);
-        const cardElement = card.generateCard();
-        cardList.addItem(cardElement);
-    }},
-    cardsContainer,);
-
-    cardList.renderItems();
 
 //Класс Попап====================
 
 //const popupWithImage = new PopupWithImage(hendlePopupPhoto);
 //popupWithImage.open();
 
-const popupWithForm = new PopupWithForm(popupCardImage,
-    {handleFormSubmit:(item)=>{
-        const card = new Card(item,"#template-element");
-        const cardElement = card.generateCard();
-        cardList.addItem(cardElement);
-    }
-});
 
-popupWithForm.close();
-
-buttonImageAdd.addEventListener('click', () => {
-    popupWithForm.open();
-});
-
-
-//ПОПАП редактирования профиля  ============================
-profileButtonNode.addEventListener('click', () => {
-    popupInputHobbyNode.value = profileHobbyNode.textContent;
-    popupInputNameNode.value = profileUserNameNode.textContent;
-    openPopup(profilePopup);
-});
+// profileButtonNode.addEventListener('click', () => {
+//     popupInputHobbyNode.value = profileHobbyNode.textContent;
+//     popupInputNameNode.value = profileUserNameNode.textContent;
+//     openPopup(profilePopup);
+// });
 
 //popupFormNode.addEventListener('submit',submitProfileForm);
 
-// ПОПАП добавления карточек   ================================
 
 //popupFormNodeImage.addEventListener('submit', submitAddCardForm);
 
-const validationConfig = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_invalid',
-    inputErrorClass: 'popup__input_type_invalide',
-    errorClass: ".popup_visible",
-    popupSelector: '.popup',
-  };
-
-const formProfileValidation = new FormValidator(validationConfig,popupFormNode);
-formProfileValidation.enableValidation();
-
-const formAddCardValidation = new FormValidator(validationConfig,popupFormNodeImage);
-formAddCardValidation.enableValidation();
 
