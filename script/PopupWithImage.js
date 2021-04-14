@@ -6,13 +6,14 @@ export class PopupWithImage extends  Popup{
         this._hendlePopupPhoto = hendlePopupPhoto
     }
 
-    open(data){
+    open(name,link){
         super.open();
-        const fullFotoPopup = this._element.querySelector(".popup__image");
-        const fullTitlePopup = this._element.querySelector(".popup__figcaption");
-        fullFotoPopup.alt = data.name;
-        fullFotoPopup.src = data.link
-        fullTitlePopup.textContent = data.name;
+        const fullFotoPopup = document.querySelector(".popup__image");
+        const fullTitlePopup = document.querySelector(".popup__figcaption");
 
+
+        fullFotoPopup.alt = name;
+        fullFotoPopup.src = link
+        fullTitlePopup.textContent = name;
     }
 }

@@ -47,7 +47,7 @@ const cardList = new Section(
         {handleFormSubmit:(item)=>{
             const card = new Card(item,"#template-element");
             const cardElement = card.generateCard();
-            cardList.addItem(cardElement);
+            cardList.addItem(cardElement,'append');
         }
     });
     
@@ -68,10 +68,10 @@ const cardList = new Section(
 
 
     const popupWithImage = new PopupWithImage(hendlePopupPhoto);
-    popupWithImage.open();
+    popupWithImage.open()
 
-    function handleCardClick() {
-        
+    function handleCardClick(name,link) {
+        popupWithImage.open(name,link);
     }
 
 
