@@ -2,7 +2,7 @@ import {Card} from "./Card.js";
 import {FormValidator} from "./FormValidator.js";
 import {initialCards} from "./initialCards.js";
 import {Section} from "./Section.js";
-//import {PopupWithImage} from "./PopupWithImage.js";
+import {PopupWithImage} from "./PopupWithImage.js";
 import {PopupWithForm} from "./PopupWithForm.js";
 
 const profileButtonNode = document.querySelector('.profile__name-edit');
@@ -17,8 +17,8 @@ const popupInputHobbyNode = profilePopup.querySelector('.popup__input_type_hobby
 
 const popupCardImage = document.querySelector('.popup-image');
 const popupFormNodeImage = popupCardImage.querySelector('.popup__form_type_submit');
-// const popupAddTitle = popupCardImage.querySelector('.popup__input_type_title');
-// const popupAddImage = popupCardImage.querySelector('.popup__input_type_image');
+const popupAddTitle = popupCardImage.querySelector('.popup__input_type_title');
+const popupAddImage = popupCardImage.querySelector('.popup__input_type_image');
 
 const cardsContainer = document.querySelector('.element');
 
@@ -28,7 +28,6 @@ const fullFotoTitle = popupImageFull.querySelector('.popup__figcaption');
 
 const popups = document.querySelectorAll('.popup');
 
-const escape = "Escape"
 
 
 
@@ -68,6 +67,15 @@ const cardList = new Section(
 
 
 
+    const popupWithImage = new PopupWithImage(hendlePopupPhoto);
+    popupWithImage.open();
+
+    function handleCardClick() {
+        
+    }
+
+
+
 
     const validationConfig = {
         formSelector: '.popup__form',
@@ -84,29 +92,6 @@ const cardList = new Section(
     
     const formAddCardValidation = new FormValidator(validationConfig,popupFormNodeImage);
     formAddCardValidation.enableValidation();
-
-
-
-
-
-//Закрытие попап на Esc================
-// const  closeEscPopup = (evt) => {
-//     if (evt.key === escape) {
-//         closePopup(document.querySelector('.popup_visible'));
-//     };
-// };
-
-//Overlay закрытие попап================
-// popups.forEach((popup) => {
-//     popup.addEventListener('click',(evt) => {
-//         if(evt.target.classList.contains('popup_visible')){
-//             closePopup(popup);
-//         }
-//         if (evt.target.classList.contains('popup__close')) {
-//             closePopup(popup);
-//         }
-//     });
-// });
 
 //Вызов поп-ап   ============================
 // function openPopup(popup) {
@@ -137,16 +122,10 @@ const cardList = new Section(
 //     formAddCardValidation.disableSubmitButton()
 // };
 
-function handleCardClick() {
-    openPopup(popupImageFull);
-}
-
 //Создание карточки=============
 
 //Класс Попап====================
 
-//const popupWithImage = new PopupWithImage(hendlePopupPhoto);
-//popupWithImage.open();
 
 
 // profileButtonNode.addEventListener('click', () => {

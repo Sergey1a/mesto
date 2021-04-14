@@ -12,7 +12,7 @@ export class PopupWithImage extends  Popup{
         const fullTitlePopup = this._element.querySelector(".popup__figcaption");
         fullFotoPopup.alt = data.name;
         fullFotoPopup.src = data.link
-        fullTitlePopup.textContent = item.name;
+        fullTitlePopup.textContent = data.name;
 
     }
 }
