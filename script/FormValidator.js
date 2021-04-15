@@ -58,7 +58,7 @@ export class FormValidator{
         this._errorElement.textContent = "";
     }
 
-    //* Скрытие ошибок и очистка полей
+    // Скрытие ошибок и очистка полей
     hideAllErrors() {
         this._errors.forEach((error) => {
         error.classList.remove(this._errorClass);
