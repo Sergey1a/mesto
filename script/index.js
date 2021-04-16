@@ -41,11 +41,13 @@ const cardList = new Section({
 
 const popupAddCardWithForm = new PopupWithForm(popupCardImage,
     {handleFormSubmit:(item)=>{
-         const card = new Card(item,"#template-element");
+         const card = new Card(item,"#template-element",handleCardClick);
         const cardElement = card.generateCard();
         cardList.addItem(cardElement);
     }
 });
+popupAddCardWithForm.setEventListeners();
+    
     
 buttonImageAdd.addEventListener('click', () => {
     popupAddCardWithForm.open();
@@ -60,7 +62,7 @@ const popupProfileWithForm = new PopupWithForm(profilePopup,
         userInfo.setUserInfo(data);
     }
 });
-popupProfileWithForm.close()
+popupProfileWithForm.setEventListeners();
     
 profileButtonNode.addEventListener('click', () => {
     popupProfileWithForm.open();

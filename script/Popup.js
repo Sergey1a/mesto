@@ -1,7 +1,7 @@
 export class Popup{
     constructor(popupsSelector){
         this._element = popupsSelector;
-        this._overlay = document.querySelector('.popup');
+        // this._overlay = document.querySelector('.popup');
         this._popupCloseButton = this._element.querySelector(".popup__close")
     }
 
@@ -27,7 +27,7 @@ export class Popup{
          this.close();
       });
       
-      this._overlay.addEventListener("click", (evt) => {
+      this._element.addEventListener("click", (evt) => {
         if (evt.target.classList.contains('popup_visible')) {
           this.close();
         }
