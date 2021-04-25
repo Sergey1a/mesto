@@ -14,7 +14,7 @@ export class Section{
         this._container.prepend(cardElement)
     }
 
-    renderItems = () =>{
+    renderItems() {
         this.clear();
 
         this._data.forEach((item) => {

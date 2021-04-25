@@ -3,10 +3,10 @@
 @import url(../blocks/page/page.css);
 @import url(../blocks/conteiner/conteiner.css);
 /* HEADER*/
-@import url(../blocks/header/header.css);
-@import url(../blocks/header/__logo-block/header__logo-block.css);
-@import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/header/__logo-block/_full/header__logo-block_full.css);
+@import url(.././blocks/header/header.css);
+@import url(.././blocks/header/__logo-block/header__logo-block.css);
+@import url(.././blocks/header/__logo/header__logo.css);
+@import url(.././blocks/header/__logo-block/_full/header__logo-block_full.css);
 /*PROFILE*/
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);

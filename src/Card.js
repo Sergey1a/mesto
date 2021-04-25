@@ -28,7 +28,7 @@ export class Card{
         return this._element;
     }
 
-    _setEventListener (){
+    _setEventListener = () => {
 
         this._element.querySelector(".element__remove").addEventListener(
             "click",
