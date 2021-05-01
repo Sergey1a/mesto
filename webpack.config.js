@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './pages/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -22,7 +22,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './pages/index.html'
     }),
 
     new CleanWebpackPlugin(),
@@ -31,50 +31,33 @@ module.exports = {
   ], 
   module: {
     rules: [
+      { 
+        test: /\.html$/i, 
+        loader: 'html-loader', 
+      },
 
-        
-
-        { 
-            test: /\.html$/i, 
-            loader: 'html-loader', 
-        },
-
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /(node_modules|bower_components)/,
-          loader: 'babel-loader',
-          options: {
-            "presets": [
-              "@babel/preset-env"
-            ],
-              plugins: ['transform-class-properties']
-          }
-        },
-
-        {
-
-            test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
-            type: 'asset/resource'
-
-        },
-
-        {
-
-            test: /\.(woff|woff2|eot|ttf|otf)$/i,
-            type: 'asset/resource',
-
-        },
-
-
-        {
-            test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, {
-            loader: 'css-loader',
-            options: { importLoaders: 1 }
-            },'postcss-loader']
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        options: {
+          "presets": [
+          "@babel/preset-env"
+        ],
+        plugins: ['transform-class-properties']
         }
-            
-    
+      },
+
+      {
+        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        type: 'asset/resource'
+      },
+
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      
+      }
     ]
   }
 };

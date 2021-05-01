@@ -1,32 +1,24 @@
-import "./index.css"
-import {Card} from "./Card.js";
-import {FormValidator} from "./FormValidator.js";
-import {initialCards} from "./initialCards.js";
-import {Section} from "./Section.js";
-import {PopupWithImage} from "./PopupWithImage.js";
-import {PopupWithForm} from "./PopupWithForm.js";
-import {UserInfo} from "./UserInfo.js"
-
-const profileButtonNode = document.querySelector('.profile__name-edit');
-const buttonImageAdd = document.querySelector('.profile__image-edit');
-
-const profilePopup = document.querySelector('.popup-profile');
-const popupFormNode = profilePopup.querySelector('.popup__form');
-
-const profileUserName = document.querySelector(".profile__user-name");
-const profileUserHobby = document.querySelector(".profile__hobby");
-
-const profileUserNameInput = document.querySelector(".popup__input_type_name");
-const profileUserHobbyInput = document.querySelector('.popup__input_type_hobby')
-
-const popupCardImage = document.querySelector('.popup-image');
-const popupFormNodeImage = popupCardImage.querySelector('.popup__form_type_submit');
-
-const cardsContainer = document.querySelector('.element');
-
-const popupImageFull = document.querySelector('.popup-full');
-
-
+import './index.css';
+import {Card} from "../components/Card.js";
+import {FormValidator} from "../components/FormValidator.js";
+import {Section} from "../components/Section.js";
+import {PopupWithImage} from "../components/PopupWithImage.js";
+import {PopupWithForm} from "../components/PopupWithForm.js";
+import {UserInfo} from "../components/UserInfo.js";
+import {initialCards,
+    profileButtonNode,
+    buttonImageAdd,
+    profilePopup,
+    popupFormNode,
+    profileUserName,
+    profileUserHobby,
+    profileUserNameInput,
+    profileUserHobbyInput,
+    popupCardImage,
+    popupFormNodeImage,
+    cardsContainer,
+    popupImageFull,
+    validationConfig} from "../utils/initialCards.js";
 
 //Класс Section====================================
 const cardList = new Section({
@@ -40,6 +32,7 @@ const cardList = new Section({
 
     cardList.renderItems();
 
+    
 const popupAddCardWithForm = new PopupWithForm(popupCardImage,
     {handleFormSubmit:(item)=>{
          const card = new Card(item,"#template-element",handleCardClick);
@@ -74,7 +67,6 @@ profileButtonNode.addEventListener('click', () => {
 });
 
 
-
 const popupWithImage = new PopupWithImage(popupImageFull);
 popupWithImage.setEventListeners();
 
@@ -83,18 +75,6 @@ function handleCardClick(name,link) {
     popupWithImage.open(name,link);
 }
 
-
-
-
-const validationConfig = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_invalid',
-    inputErrorClass: 'popup__input_type_invalide',
-    errorClass: ".popup_visible",
-    popupSelector: '.popup',
-};
     
 const formProfileValidation = new FormValidator(validationConfig,popupFormNode);
 formProfileValidation.enableValidation();

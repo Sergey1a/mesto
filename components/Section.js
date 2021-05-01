@@ -1,4 +1,3 @@
-
 export class Section{
     constructor({data,renderer},cardsContainer){
         this._data = data;
