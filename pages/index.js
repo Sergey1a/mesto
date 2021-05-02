@@ -20,13 +20,20 @@ import {initialCards,
     popupImageFull,
     validationConfig} from "../utils/initialCards.js";
 
+
+const createCard = (item) => {
+    const card = new Card(item,"#template-element", ()=> {
+        popupWithImage.open(item.name,item.link);
+        }
+    );
+    return card.generateCard();
+}
+
 //Класс Section====================================
 const cardList = new Section({
     data: initialCards,
     renderer: (item)=>{
-        const card = new Card(item,"#template-element",handleCardClick);
-        const cardElement = card.generateCard();
-        cardList.addItem(cardElement,'prepend');
+        cardList.addItem(createCard(item));
     }},
     cardsContainer,);
 
@@ -35,9 +42,7 @@ const cardList = new Section({
     
 const popupAddCardWithForm = new PopupWithForm(popupCardImage,
     {handleFormSubmit:(item)=>{
-         const card = new Card(item,"#template-element",handleCardClick);
-        const cardElement = card.generateCard();
-        cardList.addItem(cardElement);
+        cardList.addItem(createCard(item));
     }
 });
 popupAddCardWithForm.setEventListeners();
@@ -48,6 +53,7 @@ buttonImageAdd.addEventListener('click', () => {
     formAddCardValidation.disableSubmitButton() 
 });
 
+
 const userInfo = new UserInfo({profileUserName,profileUserHobby});
 
        
@@ -57,7 +63,8 @@ const popupProfileWithForm = new PopupWithForm(profilePopup,
     }
 });
 popupProfileWithForm.setEventListeners();
-    
+   
+
 profileButtonNode.addEventListener('click', () => {
     popupProfileWithForm.open();
     const data = userInfo.getUserInfo();
@@ -69,13 +76,7 @@ profileButtonNode.addEventListener('click', () => {
 
 const popupWithImage = new PopupWithImage(popupImageFull);
 popupWithImage.setEventListeners();
-
-
-function handleCardClick(name,link) {
-    popupWithImage.open(name,link);
-}
-
-    
+   
 const formProfileValidation = new FormValidator(validationConfig,popupFormNode);
 formProfileValidation.enableValidation();
     
