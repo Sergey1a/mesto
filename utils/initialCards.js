@@ -2,7 +2,7 @@ export  const profileButtonNode = document.querySelector('.profile__name-edit');
 export  const buttonImageAdd = document.querySelector('.profile__image-edit');
 
 export  const profilePopup = document.querySelector('.popup-profile');
-export  const popupFormNode = profilePopup.querySelector('.popup__form');
+export  const formEditProfile = profilePopup.querySelector(".popup__form_type_profile");
 
 export  const profileUserName = document.querySelector(".profile__user-name");
 export  const profileUserHobby = document.querySelector(".profile__hobby");
@@ -11,8 +11,9 @@ export  const profileUserNameInput = document.querySelector(".popup__input_type_
 export  const profileUserHobbyInput = document.querySelector('.popup__input_type_hobby')
 
 export  const popupCardImage = document.querySelector('.popup-image');
-export  const popupFormNodeImage = popupCardImage.querySelector('.popup__form_type_submit');
+export  const formAddCard = popupCardImage.querySelector('.popup__form_type_submit');
 
+export  const templateCard = "#template-element";
 export  const cardsContainer = document.querySelector('.element');
 
 export  const popupImageFull = document.querySelector('.popup-full');
@@ -48,8 +49,10 @@ export const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_invalid',
+    buttonInvalid: 'popup__button_invalid',
+    inactiveButtonClass: '.popup__button_invalid',
     inputErrorClass: 'popup__input_type_invalide',
+    inputError: ".popup__error",
     errorClass: ".popup_visible",
     popupSelector: '.popup',
 };

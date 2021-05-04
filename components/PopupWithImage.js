@@ -1,9 +1,8 @@
 import {Popup} from "./Popup.js"
 
 export class PopupWithImage extends  Popup{
-    constructor(popupsSelector,hendlePopupPhoto){
-        super(popupsSelector);
-        this._hendlePopupPhoto = hendlePopupPhoto
+    constructor(popupsElement){
+        super(popupsElement);
     }
 
     open(name,link){

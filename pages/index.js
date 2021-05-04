@@ -9,20 +9,22 @@ import {initialCards,
     profileButtonNode,
     buttonImageAdd,
     profilePopup,
-    popupFormNode,
+    formEditProfile,
     profileUserName,
     profileUserHobby,
     profileUserNameInput,
     profileUserHobbyInput,
     popupCardImage,
-    popupFormNodeImage,
+    formAddCard,
     cardsContainer,
     popupImageFull,
-    validationConfig} from "../utils/initialCards.js";
+    validationConfig,
+    templateCard,
+    } from "../utils/initialCards.js";
 
 
 const createCard = (item) => {
-    const card = new Card(item,"#template-element", ()=> {
+    const card = new Card(item,templateCard, ()=> {
         popupWithImage.open(item.name,item.link);
         }
     );
@@ -50,7 +52,7 @@ popupAddCardWithForm.setEventListeners();
     
 buttonImageAdd.addEventListener('click', () => {
     popupAddCardWithForm.open();
-    formAddCardValidation.disableSubmitButton() 
+    formAddCardValidation.hideAllErrors();
 });
 
 
@@ -70,16 +72,16 @@ profileButtonNode.addEventListener('click', () => {
     const data = userInfo.getUserInfo();
     profileUserNameInput.value = data.name;
     profileUserHobbyInput.value = data.hobby;
-    formProfileValidation.disableSubmitButton();
+    formProfileValidation.hideAllErrors();
 });
 
 
 const popupWithImage = new PopupWithImage(popupImageFull);
 popupWithImage.setEventListeners();
    
-const formProfileValidation = new FormValidator(validationConfig,popupFormNode);
+const formProfileValidation = new FormValidator(validationConfig,formEditProfile);
 formProfileValidation.enableValidation();
     
-const formAddCardValidation = new FormValidator(validationConfig,popupFormNodeImage);
+const formAddCardValidation = new FormValidator(validationConfig,formAddCard);
 formAddCardValidation.enableValidation();
 
